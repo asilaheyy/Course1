@@ -36,6 +36,7 @@ public class Main {
         calculateAllSalaryAndAverage(employees);
         maxSalary(employees);
         minSalary(employees);
+        salaryIncrease10(employees);
     }
 
     public static void calculateAllSalaryAndAverage(Employee employees[]) {
@@ -69,6 +70,15 @@ public class Main {
             }
         }
         System.out.println("Минимальная зарплата за месяц составила: " + min_Salary + " руб.");
+    }
+
+    public static void salaryIncrease10(Employee employees[]) {
+        double salary_Increase_10 = 0.1;
+        for (int i = 0; i < employees.length; i++) {
+            salary_Increase_10 = employees[i].getSalary()*0.1+employees[i].getSalary();
+            System.out.println("Зарплата у сотрудника "+employees[i].getFirstName()+" после повышения на 10%: " +salary_Increase_10+" руб.");
+
+        }
     }
 
 }
