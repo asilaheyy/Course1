@@ -11,7 +11,7 @@ public class Main {
         Employee seventhEmployee = new Employee("Stepanov", "Stepan", "Stepanov", 10, 1);
         Employee eightEmployee = new Employee("Makarova", "Olga", "Makarovna", 10, 5);
         Employee ninethEmployee = new Employee("Zhukova", "Larisa", "Vladimirovna", 10, 3);
-        Employee tenthEmployee = new Employee("Tarasova", "Sofia", "Alekseevna", 10, 2);
+        Employee tenthEmployee = new Employee("Tarasova", "Sofia", "Alekseevna", 0, 2);
 
         employees[0] = firstEmployee;
         employees[1] = secondEmployee;
@@ -38,6 +38,7 @@ public class Main {
         minSalary(employees);
         salaryIncrease10(employees);
         averageSalary(employees);
+
     }
 
     public static void calculateAllSalary(Employee employees[]) {
@@ -56,33 +57,32 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             salarySum = salarySum + employees[i].getSalary();
             counter++;
-            averageSalary = salarySum / counter;
-
         }
+        averageSalary = salarySum / counter;
         System.out.println("Средняя зарплата за месяц: " + averageSalary + " руб.");
     }
 
     public static void maxSalary(Employee employees[]) {
 
-        int max_Salary = -1;
+        int maxSalary = -1;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > max_Salary) {
-                max_Salary = employees[i].getSalary();
+            if (employees[i].getSalary() > maxSalary) {
+                maxSalary = employees[i].getSalary();
             }
         }
-        System.out.println("Максимальная зарплата за месяц: " + max_Salary + " руб.");
+        System.out.println("Максимальная зарплата за месяц: " + maxSalary + " руб.");
 
     }
 
     public static void minSalary(Employee employees[]) {
 
-        int min_Salary = employees[0].getSalary();
+        int minSalary = employees[0].getSalary();
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() < min_Salary) {
-                min_Salary = employees[i].getSalary();
+            if (employees[i].getSalary() < minSalary) {
+                minSalary = employees[i].getSalary();
             }
         }
-        System.out.println("Минимальная зарплата за месяц составила: " + min_Salary + " руб.");
+        System.out.println("Минимальная зарплата за месяц составила: " + minSalary + " руб.");
     }
 
     public static void salaryIncrease10(Employee employees[]) {
@@ -93,7 +93,6 @@ public class Main {
 
         }
     }
-
 }
 
 
