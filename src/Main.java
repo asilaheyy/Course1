@@ -4,11 +4,11 @@ public class Main {
         Employee[] employees = new Employee[10];
         Employee firstEmployee = new Employee("Aleksandrova", "Alisa", "Aleksandrovna", 10, 4);
         Employee secondEmployee = new Employee("Ivanov", "Ivan", "Ivanovich", 10, 1);
-        Employee thirdEmployee = new Employee("Mikhailov", "Mihail", "Mihailovich", 1, 3);
+        Employee thirdEmployee = new Employee("Mikhailov", "Mihail", "Mihailovich", 10, 3);
         Employee fourthEmployee = new Employee("Andreev", "Andrei", "Andreevich", 10, 5);
-        Employee fifthEmployee = new Employee("Sergeev", "Sergei", "Sergeevich", 0, 2);
-        Employee sixthEmployee = new Employee("Aleksandrov", "Aleksandr", "Aleksandrovich", 1, 3);
-        Employee seventhEmployee = new Employee("Stepanov", "Stepan", "Stepanov", 20, 1);
+        Employee fifthEmployee = new Employee("Sergeev", "Sergei", "Sergeevich", 10, 2);
+        Employee sixthEmployee = new Employee("Aleksandrov", "Aleksandr", "Aleksandrovich", 10, 3);
+        Employee seventhEmployee = new Employee("Stepanov", "Stepan", "Stepanov", 10, 1);
         Employee eightEmployee = new Employee("Makarova", "Olga", "Makarovna", 10, 5);
         Employee ninethEmployee = new Employee("Zhukova", "Larisa", "Vladimirovna", 10, 3);
         Employee tenthEmployee = new Employee("Tarasova", "Sofia", "Alekseevna", 10, 2);
@@ -25,7 +25,7 @@ public class Main {
         employees[9] = tenthEmployee;
 
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].toString());
+            System.out.println(employees[i]);
         }
         System.out.println("ФИО всех сотрудников: ");
         for (int i = 0; i < employees.length; i++) {
@@ -33,20 +33,33 @@ public class Main {
         }
         System.out.println();
 
-        calculateAllSalaryAndAverage(employees);
+        calculateAllSalary(employees);
         maxSalary(employees);
         minSalary(employees);
         salaryIncrease10(employees);
+        averageSalary(employees);
     }
 
-    public static void calculateAllSalaryAndAverage(Employee employees[]) {
+    public static void calculateAllSalary(Employee employees[]) {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum = sum + employees[i].getSalary();
         }
         System.out.println("Сумма затрат на зарплаты сотрудникам за месяц: " + sum + " рублей.");
-        int averageSalary = sum / employees.length;
-        System.out.println("Средняя зарплата за месяц: " + averageSalary + " рублей.");
+    }
+
+    public static void averageSalary(Employee employees[]) {
+        int counter = 0;
+        int salarySum = 0;
+        int averageSalary = 0;
+
+        for (int i = 0; i < employees.length; i++) {
+            salarySum = salarySum + employees[i].getSalary();
+            counter++;
+            averageSalary = salarySum / counter;
+
+        }
+        System.out.println("Средняя зарплата за месяц: " + averageSalary + " руб.");
     }
 
     public static void maxSalary(Employee employees[]) {
@@ -75,8 +88,8 @@ public class Main {
     public static void salaryIncrease10(Employee employees[]) {
         double salary_Increase_10 = 0.1;
         for (int i = 0; i < employees.length; i++) {
-            salary_Increase_10 = employees[i].getSalary()*0.1+employees[i].getSalary();
-            System.out.println("Зарплата у сотрудника "+employees[i].getFirstName()+" после повышения на 10%: " +salary_Increase_10+" руб.");
+            salary_Increase_10 = employees[i].getSalary() * 0.1 + employees[i].getSalary();
+            System.out.println("Зарплата у сотрудника " + employees[i].getFirstName() + " после повышения на 10%: " + salary_Increase_10 + " руб.");
 
         }
     }

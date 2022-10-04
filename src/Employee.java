@@ -7,7 +7,7 @@ public class Employee {
     private int salary;
     private int department;
 
-    private static int counter;
+    private static int counter = 1;
     private static AtomicInteger counter1 = new AtomicInteger();
     private int id;
     public Employee(String lastName, String firstName, String middleName, int salary, int department) {
